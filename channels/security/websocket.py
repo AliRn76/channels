@@ -57,7 +57,7 @@ class OriginValidator:
         """
         Validate the given origin for this site.
 
-        Check than the origin looks valid and matches the origin pattern in
+        Check that the origin looks valid and matches the origin pattern in the
         specified list ``allowed_origins``. Any pattern begins with a scheme.
         After the scheme there must be a domain. Any domain beginning with a
         period corresponds to the domain and all its subdomains (for example,
@@ -80,8 +80,8 @@ class OriginValidator:
         Returns ``True`` if the origin is either an exact match or a match
         to the wildcard pattern. Compares scheme, domain, port of origin and pattern.
 
-        Any pattern can be begins with a scheme. After the scheme must be a domain,
-        or just domain without scheme.
+        Any pattern can begin with a scheme. After the scheme must be a domain
+        or just a domain without the scheme.
         Any domain beginning with a period corresponds to the domain and all
         its subdomains (for example, ``.example.com`` ``example.com``
         and any subdomain). Also with scheme (for example, ``http://.example.com``
@@ -122,7 +122,7 @@ class OriginValidator:
         if origin.port is not None:
             # Return origin.port
             return origin.port
-        # if origin.port doesn`t exists
+        # if origin.port doesn't exists
         if origin.scheme == "http" or origin.scheme == "ws":
             # Default port return for http, ws
             return 80
